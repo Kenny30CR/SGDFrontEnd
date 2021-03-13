@@ -1,0 +1,47 @@
+<div class="card text-center mt-4 mx-auto" style="width: 28rem;">
+    <h4 class="card-header"><fa-icon [icon]="['fas', 'key']"></fa-icon>  Cambiar contraseña</h4>
+   <div class="card-body">
+
+
+    <form class="form " [formGroup]="passwForm" id="passwForm" name="passwForm" (submit)="onSubmit();">
+
+
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Contraseña" formControlName="passw"
+            [ngClass]="{'border-danger':passwForm.controls['passw'].invalid && passwForm.controls['passw'].touched}">
+            <div *ngIf="passwForm.controls['passw'].invalid && passwForm.controls['passw'].touched" class="alert alert-danger" >
+                <div *ngIf="passwForm.controls['passw'].errors['required']">La Contraseña es obligatorio</div>
+                <div *ngIf="passwForm.controls['passw'].errors['invalid']">La Contraseña no es valida</div>
+            </div> 
+        </div>
+
+
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Contraseña nueva" formControlName="passwN"
+            [ngClass]="{'border-danger':passwForm.controls['passwN'].invalid && passwForm.controls['passwN'].touched}">
+            <div *ngIf="passwForm.controls['passwN'].invalid && passwForm.controls['passwN'].touched" class="alert alert-danger" >
+                <div *ngIf="passwForm.controls['passwN'].errors['required']">La Contraseña nueva es obligatorio</div>
+            </div> 
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Repetir contraseña" formControlName="passwR"
+            [ngClass]="{'border-danger':passwForm.controls['passwR'].invalid && passwForm.controls['passwR'].touched}">
+            <div *ngIf="passwForm.controls['passwR'].invalid && passwForm.controls['passwR'].touched" class="alert alert-danger" >
+                <div *ngIf="passwForm.controls['passwR'].errors['required']">Confirme la nueva contraseña</div>
+                <div *ngIf="passwForm.controls['passwR'].errors['debeCoincidir']">La contraseña nueva y la confirmacion no son iguales.</div>
+            </div> 
+        </div>
+
+        <div class="alert alert-success" [ngStyle]="{'display': mensaje ? 'block': 'none'}">{{mensaje}}</div>
+    </form>
+   </div>
+
+
+   <div class="card-footer text-right">
+       <button class="btn btn-success " type="submit" form="passwForm" [disabled]="!passwForm.valid">Cambiar</button>
+       <button class="btn btn-danger ml-3" (click)="onCerrar();">Cerrar</button>
+   </div>
+
+
+  </div>

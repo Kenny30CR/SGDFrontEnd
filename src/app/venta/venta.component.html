@@ -1,0 +1,211 @@
+<div class="container-fluid mt-5">
+
+    <div class="card container">
+      <div class="card-body">
+        <h3 class="card-title text-center">Lista de ventas</h3>
+        <div class="container d-flex mb-3" [@estadoFiltrar]="stateName">
+          <form class="form-inline" id="frmFiltro">
+            <div class="form-group">
+              <label class="mr-1" for="">Id Venta</label>
+              <input type="text" class="form-control" placeholder="id venta" #fCodigo (keyup)="onFiltroChange({id_venta: fCodigo.value, id_producto_venta:fNombre.value});">
+              
+            </div>
+            <div class="form-group">
+              <label class="mr-1" for="">Producto</label>
+              <input type="text" class="form-control" placeholder="Producto" #fNombre (keyup)="onFiltroChange({id_venta: fCodigo.value, id_producto_venta:fNombre.value});">
+            </div>
+          </form>
+          <button class="btn btn-danger ml-3" (click)="toggleFiltro();" onclick="frmFiltro.reset()">&times;</button>
+        </div>
+
+  
+        <div class="container table-responsive">
+          <table class="table  table-sm table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">IdVenta</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Cedula Cliente</th>
+                <th scope="col">Fecha</th>
+                <th colspan="2" class="text-center"><button class="btn btn-success" (click)="nuevoVenta()"
+                    data-toggle="modal" data-target="#ventanaForm">
+                    <fa-icon [icon]="['fas','plus']"></fa-icon>
+                  </button></th>
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr *ngFor="let item of ventas">
+                <th scope="row">{{item.id_venta}}</th>
+                <td>{{item.id_producto_venta}}</td>
+                <td>{{item.cedula_cliente_venta}}</td>
+                <td>{{item.fecha_venta}}</td>
+                <td class="text-center"><button class="btn btn-warning" (click)="editarVenta(item.id_venta)"
+                    data-toggle="modal" data-target="#ventanaForm">
+                    <fa-icon [icon]="['fas','edit']"></fa-icon>
+                  </button></td>
+                <td class="text-center"><button class="btn btn-danger" (click)="confirmarEliminar(item.id_venta)"
+                    data-toggle="modal" data-target="#ventanaConfirm">
+                    <fa-icon [icon]="['far','trash-alt']"></fa-icon>
+                  </button></td>
+              </tr>
+            </tbody>
+  
+          </table>
+  
+  
+        </div>
+      </div>
+  
+      <div class="card-footer d-flex justify-content-between mh-2">
+        <div class="d-flex justify-content-between mt-2">
+        <div class="mr-2">
+          <select name="" id="" class="form-control" (change)="cambiarLimite($event)">
+            <option value="2">2</option>
+            <option value="5" selected>5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+            <option value="75">75</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+  
+  
+              <a class="page-link"  aria-label="Previous" (click)="cambiarPagina(-1)">
+  
+  
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item" *ngIf="paginacion.primero>1"><a class="page-link" (click)="cambiarPagina(-2)"><<<</a></li>
+  
+            <li class="page-item" [ngClass]="{'active':paginacion.actual==n}" *ngFor="let n of paginacion.pags | slice:paginacion.primero-1:paginacion.ultimo">
+              <a class="page-link" (click)="cambiarPagina(n)">{{n}}</a>
+            </li>
+  
+  
+          
+            <li class="page-item" *ngIf="paginacion.ultimo< paginacion.numPags"><a class="page-link" (click)="cambiarPagina(-3)">>>></a></li>
+            <li class="page-item">
+  
+  
+              <a class="page-link"  aria-label="Next" (click)="cambiarPagina(0)">
+  
+  
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+        <div class="botones mt-2">
+          <button class="btn btn-primary mr-2" (click)="toggleFiltro();"onclick="frmFiltro.reset()">Filtrar</button>
+          <button class="btn btn-success mr-2" (click)="onImprimir();">Imprimir</button>
+          <button class="btn btn-danger mr-2" (click)="onCerrar();">Cerrar</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <!--Ventana Formulario Modal -->
+  <div class="modal fade" id="ventanaForm" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{tituloForm}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="frmVenta" (submit)="onSubmit()" id="frmVenta" name="frmVenta">
+            <div class="form-group row">
+              <label for="id_venta" class="col-sm-2 col-form-label">id Venta</label>
+              <div class="col-sm-10">
+                <input type="text" formControlName="id_venta" class="form-control" id="id_venta">
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-2 col-form-label">Id Producto</label>
+              <div class="col-sm-10">
+                <input type="text" formControlName="id_producto_venta" class="form-control" id="id_producto_venta">
+                <div class="alert alert-danger"
+                  *ngIf="frmVenta.controls['id_producto_venta'].invalid && frmVenta.controls['id_producto_venta'].touched">
+                  <div *ngIf="frmVenta.controls['id_producto_venta'].errors['required']">El id del producto es obligatorio</div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label for="nombre" class="col-sm-2 col-form-label">Cedula cliente</label>
+                <div class="col-sm-10">
+                  <input type="text" formControlName="cedula_cliente_venta" class="form-control" id="cedula_cliente_venta">
+                  <div class="alert alert-danger"
+                    *ngIf="frmVenta.controls['cedula_cliente_venta'].invalid && frmVenta.controls['cedula_cliente_venta'].touched">
+                    <div *ngIf="frmVenta.controls['cedula_cliente_venta'].errors['required']">La cedula del cliente es obligatoria</div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-2 col-form-label">Fecha</label>
+                <div class="col-sm-10">
+                  <input type="date" formControlName="fecha_venta" class="form-control" id="fecha_venta">
+                  <div class="alert alert-danger"
+                    *ngIf="frmVenta.controls['fecha_venta'].invalid && frmVenta.controls['fecha_venta'].touched">
+                    <div *ngIf="frmVenta.controls['fecha_venta'].errors['required']">La fecha es obligatorio</div>
+                  </div>
+                </div>
+              </div>
+
+
+            <input type="hidden" formControlName="funcion">
+          </form>
+  
+        </div>
+        <div class="modal-footer">
+          <div *ngIf="guardado" class="alert alert-success col-12">Datos guardados correctamente.</div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" form="frmVenta" class="btn btn-primary" [disabled]="!frmVenta.valid">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--Ventana confirmacion Modal -->
+  <div class="modal fade" id="ventanaConfirm" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{tituloForm}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="confirmado==true; else eliminaMsg" class="alert alert-warning col-12">
+            Eliminado Correctamennte.</div>
+          <ng-template #eliminaMsg>Seguro que desea eliminar la venta {{venta.id_venta}}?</ng-template>
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary" (click)="eliminar()"
+            [disabled]="confirmado==true">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>

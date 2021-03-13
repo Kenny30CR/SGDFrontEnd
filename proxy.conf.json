@@ -1,0 +1,8 @@
+{
+    "**":{
+        "target": "http://licoreria:8888/",
+        "secure": false,
+        "changeOrigen":true,
+        "logLevel":"debug"
+    }
+}

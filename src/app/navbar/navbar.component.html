@@ -1,0 +1,55 @@
+<div class="container-fluid">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+ <b> <a class="navbar-brand" [routerLink]="['']"><img class="img" src="../../assets/img/beer.png">Licoreria</a></b>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item ">
+        <a class="nav-link" [routerLink]="['']"><img class="img" src="../../assets/img/house.png"> Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/producto']"><img class="img" src="../../assets/img/productos.png"> Productos</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/cliente']"><img class="img" src="../../assets/img/clientes.png"> Clientes</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/venta']"><img class="img" src="../../assets/img/ventas.png"> Ventas</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/usuario']"><img class="img" src="../../assets/img/usuario.png"> Usuarios</a>
+      </li>
+
+
+      <li class="nav-item mt-3" style="padding-left: 50px;">
+        
+        <div class="dropdown " *ngIf="nomUsuario">
+          <button class="btn btn-outline-info dropdown-toggle btn-sm " type="button" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <fa-icon [icon]="['fas' , 'user']"></fa-icon>
+            {{nomUsuario}}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"  style="cursor:pointer;">
+            <a class="dropdown-item" [routerLink]="['/cambio-passw']">Cambiar Contraseña</a>
+            <a class="dropdown-item" (click)="salir()">Cerrar sesión</a>
+          </div>
+        </div>
+        
+      </li>
+
+    </ul>
+    
+  </div>
+</nav>
+
+</div>

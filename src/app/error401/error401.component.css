@@ -1,0 +1,29 @@
+.img{
+    width: 35%;
+    height: 35%;
+    position: relative;
+    float:left;
+    padding: 20px;
+}
+
+
+.button {
+    transition-duration: 0.4s;
+  }
+  
+  .button:hover {
+    background-color: white; /* Green */
+    color: #4CAF50;
+    display: inline-block;
+  }
+
+
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+  }

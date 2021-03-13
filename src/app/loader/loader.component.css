@@ -1,0 +1,7 @@
+.cargando{
+    width: 100px;
+    position: absolute;
+    left: 45vw;
+    top: 30vh;
+    z-index: 99999;
+}
