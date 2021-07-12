@@ -1,1 +1,99 @@
-<p>facturas works!</p>
+<div class="row mx-0 mt-0">
+    <div class="col-12 bg-gray py-2">
+        <a routerLink="/inicio">
+            Inicio
+        </a><b>></b>
+        <a>Facturas</a>
+    </div>
+</div>
+<div class="px-3 mt-3">
+    <div class="mx-0 row"></div>
+    <div class="col-12 py-3 px-3 rounded bg-gray">
+        <div class="row pb-5">
+            <div class="col-5">
+                <div class="row">
+                    <div class="col-5">
+                        Seleccione la fecha o rango:
+                    </div>
+                    <div class="col-7">
+                        <select class="form-select" aria-label="seleccion rango">
+                            <option selected>Día</option>
+                            <option value="1">Semana</option>
+                            <option value="2">Mes</option>
+                            <option value="3">Año</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" placeholder="Dígite su busqueda"
+                        aria-label="Search" />
+                </div>
+            </div>
+            <div class="col-2">Filtros:
+                <button class="btn btn-success">
+                    <fa-icon [icon]="['fas' , 'filter']"></fa-icon>
+                </button>
+                &nbsp;
+                <button class="btn btn-danger">
+                    <fa-icon [icon]="['fas' , 'remove-format']"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <table class="table">
+                <thead>
+
+                    <tr>
+                        <th scope="col">Factúra<br>Número</th>
+                        <th scope="col">Despacho<br>Número</th>
+                        <th scope="col">Sub-Contratados</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Pagada</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Sub Total</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Indicación<br>Extra</th>
+                        <th scope="col">Monto<br>Extra</th>
+                        <th scope="col">Controles</th>
+                    </tr>
+                </thead>
+
+                    <tbody>
+                        <tr *ngFor="let item of facturas">
+                          <th scope="row">{{item.idFactura}}</th>
+                          <td>{{item.ordenDesp}}</td>
+                          <td>{{item.subcontratados}}</td>
+                          <td>{{item.fechaFactura}}</td>
+                          <td>{{item.facturaPagada}}</td>
+                          <td>{{item.Descripcion}}</td>
+                          <td>{{item.subTotal}}</td>
+                          <td>{{item.montoTotal}}</td>
+                          <td>{{item.indicacionExtra}}</td>
+                          <td>{{item.montoExtra}}
+                            <button class="btn btn-warning">
+                                <fa-icon [icon]="['fas' , 'eye']"></fa-icon>
+                            </button>
+                          </td>
+                          <td class="text-center"><button class="btn btn-warning mr-2" (click)="editarFactura(item.idFactura)"
+                              data-toggle="modal" data-target="#ventanaForm">
+                              <fa-icon [icon]="['fas','file']"></fa-icon>
+                            </button>
+                          <button class="btn btn-danger mr-2" (click)="confirmarEliminar(item.idFactura)"
+                              data-toggle="modal" data-target="#ventanaConfirm">
+                              <fa-icon [icon]="['far','trash-alt']"></fa-icon>
+                            </button></td>
+                        </tr>
+                      </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
