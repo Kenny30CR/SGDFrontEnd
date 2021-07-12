@@ -63,6 +63,25 @@
                 </thead>
 
                     <tbody>
+                        <tr>
+
+
+
+                            
+
+
+
+                            <td>&nbsp;</td>
+                            <td colspan="8">
+                                
+                                <button class="btn btn-success w-100" (click)="nuevoFactura()"
+                                data-toggle="modal" data-target="#ventanaForm">
+                                <fa-icon [icon]="['fas','plus']"></fa-icon>  Generar Factura
+                              </button>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+
                         <tr *ngFor="let item of facturas">
                           <th scope="row">{{item.idFactura}}</th>
                           <td>{{item.ordenDesp}}</td>
