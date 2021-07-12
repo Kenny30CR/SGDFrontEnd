@@ -1,10 +1,115 @@
-<div class="container-fluid">
+<div class="row mx-0 mt-0">
+    <div class="col-12 bg-gray py-2">
+        <a routerLink="/home">
+            Inicio
+        </a><b>></b>
+        <a routerLink="/home">Resumen</a>
+    </div>
+</div>
+<div class="px-3">
+    <div class="row mx-0">
+        <div class="col-12 pt-4 pb-4 bg-gray mt-3 rounded">
+            <div class="row mx-0">
+                <div class="col-1 fa-3x text-primary  text-center">
+                    <fa-icon [icon]="['fas' , 'truck-loading']"></fa-icon>
+                </div>
+                <div class="col-5">
+                    Despachos realizados esta semana: <b>placeholder</b><br>
+                </div>
+                <div class="col-5">
+                    Despachos realizados el día de hoy: <b>placeholder</b>
+                </div>
+                <div class="col-1 fa-3x text-center text-dark" routerLink='/inicio/despachos'>
+                    <fa-icon [icon]="['fas' , 'list']"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-0">
+        <div class="col-12 pt-4 pb-4 bg-gray mt-3 rounded">
+            <div class="row mx-0">
+                <div class="col-1 fa-3x text-success  text-center">
+                    <fa-icon [icon]="['fas' , 'wallet']"></fa-icon>
+                </div>
+                <div class="col-5">
+                    Facturación <br>
+                    Facturas realizadas esta semana: <b>placeholder</b> <br>
+                    Total Facturado esta semana: <b>placeholder</b>
+                </div>
+                <div class="col-5">
+                    Movimientos sin facturar: <b>placeholder</b>
+                </div>
+                <div class="col-1 fa-3x text-center text-dark" routerLink='/inicio/facturas'>
+                    <fa-icon [icon]="['fas' , 'list']"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <img class="img" src="../../assets/img/jack-ward-yU9TNvk_jI8-unsplash.jpg"><br>
-   
-    <div>
-       <b><h1>Bienvenido</h1></b><br>
-       <h4>Sistema de Licoreria.</h4>
-   </div>
-   </div>
-   
+    <div class="row mx-0">
+        <div class="col-12 pt-4 pb-4 bg-gray mt-3 rounded">
+            <div class="row mx-0">
+                <div class="col-1 fa-3x text-danger  text-center">
+                    <fa-icon [icon]="['fas' , 'gas-pump']"></fa-icon>
+                </div>
+                <div class="col-5">
+                    Diesel <br>
+                    Ordenes dispensadas esta semana: <b>placeholder</b> <br>
+                    Total de Litros: <b>placeholder</b>
+                </div>
+                <div class="col-5">
+                    Facturas pendientes: <b>placeholder</b> <br>
+                    Total pendiente: <b>placeholder</b>
+                </div>
+                <div class="col-1 fa-3x text-center text-dark" routerLink='/inicio/diesel'>
+                    <fa-icon [icon]="['fas' , 'list']"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mx-0">
+        <div class="col-12 pt-4 pb-4 bg-gray mt-3 rounded">
+            <div class="row mx-0">
+                <div class="col-1 fa-3x text-secondary text-center">
+                    <fa-icon [icon]="['fas' , 'users']"></fa-icon>
+                </div>
+                <div class="col-5">
+                    Planillas <br>
+                    Total de empleados en planilla: <b>placeholder</b> <br>
+                    Total en salarios base: <b>placeholder</b>
+                </div>
+                <div class="col-5">
+                    Total estimado con gastos derivados: <b>placeholder</b>
+                </div>
+                <div class="col-1 fa-3x text-center text-dark" routerLink='/inicio/planillas'>
+                    <fa-icon [icon]="['fas' , 'list']"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mx-0">
+        <div class="col-12 pt-4 pb-4 bg-gray mt-3 rounded">
+            <div class="row mx-0">
+                <div class="col-1 fa-3x text-success text-center">
+                    <fa-icon [icon]="['fas' , 'chart-bar']"></fa-icon>
+                </div>
+                <div class="col-5">
+                    Balances <br>
+                    Total por pagar: <b>placeholder</b> <br>
+                    Total por cobrar: <b>placeholder</b>
+                </div>
+                <div class="col-5">
+                    Total de diesel: <b>placeholder</b> <br>
+                    Total Planillas: <b>placeholder</b>
+                </div>
+                <div class="col-1 fa-3x text-center text-dark">
+                    <fa-icon [icon]="['fas' , 'list']"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>

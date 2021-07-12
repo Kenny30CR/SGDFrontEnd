@@ -1,48 +1,3 @@
-<div class="container-fluid mt-5">
-<div class="card text-center mt-5 mx-auto" style="width: 20rem;">
-    <h4 class="card-header">
-        <fa-icon [icon]="['fas', 'sign-in-alt']"></fa-icon> Iniciar Sesión
-    </h4>
-    <div class="card-body">
-
-
-        <form class="form " [formGroup]="loginForm" id="loginForm" name="loginForm" (submit)="onSubmit();">
-
-
-            <div class="form-group">
-                <label class="label" for=""></label>
-                <input type="text" class="form-control" placeholder="Usuario" formControlName="usuario"
-                    [ngClass]="{'border-danger':loginForm.controls['usuario'].invalid && loginForm.controls['usuario'].touched}">
-                <div *ngIf="loginForm.controls['usuario'].invalid && loginForm.controls['usuario'].touched"
-                    class="alert alert-danger">El usuario es obligatorio</div>
-            </div>
-
-
-            <div class="form-group">
-                <label class="label" for=""></label>
-                <input type="password" class="form-control" placeholder="Contraseña" formControlName="passw"
-                    [ngClass]="{'border-danger':loginForm.controls['passw'].invalid && loginForm.controls['passw'].touched}">
-                <div *ngIf="loginForm.controls['passw'].invalid && loginForm.controls['passw'].touched"
-                    class="alert alert-danger">La Contraseña es obligatorio</div>
-            </div>
-
-            <div class="alert alert-danger" [ngStyle]="{'display':error ?'block': 'none'}">Usuario o contraseña
-                incorrecta</div>
-        </form>
-    </div>
-
-
-    <div class="card-footer">
-        <button class="btn btn-success btn-block" type="submit" form="loginForm"
-            [disabled]="!loginForm.valid">Iniciar</button>
-    </div>
-</div>
-</div>
-
-
-
-
-
 
 <div class="main-bg h-100 w-100">
     <div class="row mx-0 pt-5">
@@ -55,25 +10,44 @@
             
             <div class="row">
               <div class="col-12 fa-10x text-center">
-                <fa-icon [icon]="user" ></fa-icon>
+                <fa-icon [icon]="['fas', 'user-alt']" ></fa-icon>
               </div>
               <div class="col-8 offset-2">
-                <form>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Dirección de correo</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">Por favor utilizar el email de registro</small>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                  <div class="form-check">
+
+<form class="form " [formGroup]="loginForm" id="loginForm" name="loginForm" (submit)="onSubmit();">
+
+
+            <div class="form-group">
+                <label class="label" for="">Correo</label>
+                <input type="text" class="form-control" placeholder="Correo" formControlName="usuario"
+                    [ngClass]="{'border-danger':loginForm.controls['usuario'].invalid && loginForm.controls['usuario'].touched}">
+                <div *ngIf="loginForm.controls['usuario'].invalid && loginForm.controls['usuario'].touched"
+                    class="alert alert-danger">El correo es obligatorio</div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="label" for="">Contraseña</label>
+                <input type="password" class="form-control" placeholder="Contraseña" formControlName="passw"
+                    [ngClass]="{'border-danger':loginForm.controls['passw'].invalid && loginForm.controls['passw'].touched}">
+                <div *ngIf="loginForm.controls['passw'].invalid && loginForm.controls['passw'].touched"
+                    class="alert alert-danger">La Contraseña es obligatorio</div>
+            </div>
+
+            <div class="alert alert-danger" [ngStyle]="{'display':error ?'block': 'none'}">Usuario o contraseña
+                incorrecta</div>
+
+                <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Recordarme</label>
                   </div>
-                  <button type="submit" class="btn btn-primary offset-4"> <fa-icon [icon]="entrar"></fa-icon> Conectarme</button>
-                </form>
+
+                <div class="card-footer">
+                    <button class="btn btn-success btn-block" type="submit" form="loginForm"
+                        [disabled]="!loginForm.valid"><fa-icon [icon]="['fas', 'sign-in-alt']"></fa-icon>  Conectarme</button>
+                </div>
+        </form>
+
               </div>
             </div>
             <div class="row"></div>

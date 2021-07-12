@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  servidor: 'http://licoreria:8888'
+  servidor: 'http://SGD:8888'
 };
 
 /*

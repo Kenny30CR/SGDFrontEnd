@@ -8,21 +8,25 @@ import { LoginGuard } from './shared/guard/login.guard';
 import { Role } from './shared/models/role.model';
 import { CambiopassComponent } from './cambiopass/cambiopass.component';
 import { Error401Component } from './error401/error401.component';
-import { ProductoComponent } from './producto/producto.component';
-import { ClienteComponent } from './cliente/cliente.component';
-import { VentaComponent } from './venta/venta.component';
+import { DespachosComponent } from './despachos/despachos.component';
+import { DieselComponent } from './diesel/diesel.component';
+import { FacturasComponent } from './facturas/facturas.component';
+import { PlanillasComponent } from './planillas/planillas.component';
+import { BalancesComponent } from './balances/balances.component';
 
 
 const routes: Routes = [
   {path: '' , pathMatch: 'full', redirectTo:'/login'},
   {path: 'login' , component: LoginComponent,canActivate:[LoginGuard]},
   {path: 'usuario' , component: UsuarioComponent, canActivate:[AuthGuard],data:{roles: [Role.Admin]}},
-  {path: 'producto' , component: ProductoComponent, canActivate:[AuthGuard],data:{roles: [Role.User,Role.Admin, Role.PowerUser]}},
-  {path: 'venta' , component: VentaComponent, canActivate:[AuthGuard],data:{roles: [ Role.Admin, Role.PowerUser]}},
-  {path: 'cliente' , component: ClienteComponent, canActivate:[AuthGuard],data:{roles: [Role.User, Role.Admin, Role.PowerUser]}},
+  {path: 'despachos' , component: DespachosComponent, canActivate:[AuthGuard],data:{roles: [Role.User,Role.Admin, Role.PowerUser]}},
+  {path: 'diesel' , component: DieselComponent, canActivate:[AuthGuard],data:{roles: [Role.User,Role.Admin, Role.PowerUser]}},
+  {path: 'facturas' , component: FacturasComponent, canActivate:[AuthGuard],data:{roles: [Role.User,Role.Admin, Role.PowerUser]}},
+  {path: 'balances' , component: BalancesComponent, canActivate:[AuthGuard],data:{roles: [Role.User,Role.Admin, Role.PowerUser]}},
+  {path: 'planillas' , component: PlanillasComponent, canActivate:[AuthGuard],data:{roles: [Role.User,Role.Admin, Role.PowerUser]}},
   {path: 'cambio-passw' , component: CambiopassComponent, canActivate:[AuthGuard],data:{roles: [Role.User, Role.Admin, Role.PowerUser]}},
   {path: 'error401' , component: Error401Component},
-  {path: 'home' , component: HomeComponent}
+  {path: 'home' , component: HomeComponent, canActivate:[AuthGuard],data:{roles: [Role.User, Role.Admin, Role.PowerUser]}}
 ];
 
 @NgModule({

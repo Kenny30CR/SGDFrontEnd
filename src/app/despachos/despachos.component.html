@@ -1,0 +1,126 @@
+<div class="row mx-0 mt-0">
+    <div class="col-12 bg-gray py-2">
+        <a routerLink="/inicio">
+            Inicio
+        </a><b>></b>
+        <a>Despachos</a>
+    </div>
+</div>
+<div class="px-3 mt-3">
+    <div class="mx-0 row"></div>
+    <div class="col-12 py-3 px-3 rounded bg-gray">
+        <div class="row pb-5">
+            <div class="col-5">
+                <div class="row">
+                    <div class="col-5">
+                        Seleccione la fecha o rango:
+                    </div>
+                    <div class="col-7">
+                        <select class="form-select" aria-label="seleccion rango">
+                            <option selected>Día</option>
+                            <option value="1">Semana</option>
+                            <option value="2">Mes</option>
+                            <option value="3">Año</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" placeholder="Dígite su busqueda"
+                        aria-label="Search" />
+                </div>
+            </div>
+            <div class="col-2">Filtros:
+                <button class="btn btn-success">
+                    <fa-icon [icon]="['fas' , 'filter']"></fa-icon>
+                </button>
+                &nbsp;
+                <button class="btn btn-danger">
+                    <fa-icon [icon]="['fas' , 'remove-format']"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <table class="table">
+                <thead>
+
+                    <tr>
+                        <th scope="col">Número</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Contenedor</th>
+                        <th scope="col">DUA o BNK</th>
+                        <th scope="col">Chofer</th>
+                        <th scope="col">Placa</th>
+                        <th scope="col">Destino</th>
+                        <th scope="col">Entrega</th>
+                        <th scope="col">Controles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td colspan="8">
+                            <button class="btn btn-success w-100">Agregar</button>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>08:00</td>
+                        <td>SHIPPING</td>
+                        <td>CXRU-000000-0</td>
+                        <td>006-2021-000000</td>
+                        <td>Pedro, Sanchez</td>
+                        <td>C-000000</td>
+                        <td>San José</td>
+                        <td>
+                            Limón &nbsp;
+                            <button class="btn btn-warning">
+                                <fa-icon [icon]="['fas' , 'eye']"></fa-icon>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary">
+                                <fa-icon [icon]="['fas' , 'file']"></fa-icon>
+                            </button>
+                            &nbsp;
+                            <button class="btn btn-danger">
+                                <fa-icon [icon]="['fas' , 'trash']"></fa-icon>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>08:00</td>
+                        <td>SEAL T.</td>
+                        <td>TEMU-000000-0</td>
+                        <td>006-2021-000000</td>
+                        <td>Juan, Cortés</td>
+                        <td>C-000000</td>
+                        <td>San Carlos</td>
+                        <td>
+                            Limón &nbsp;
+                            <button class="btn btn-warning">
+                                <fa-icon [icon]="['fas' , 'eye']"></fa-icon>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary">
+                                <fa-icon [icon]="['fas' , 'file']"></fa-icon>
+                            </button>
+                            &nbsp;
+                            <button class="btn btn-danger">
+                                <fa-icon [icon]="['fas' , 'trash']"></fa-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

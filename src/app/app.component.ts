@@ -8,9 +8,15 @@ import { AuthService } from './shared/services/auth.service';
 })
 export class AppComponent {
   title = 'FrontEnd';
-  constructor(private authSrv: AuthService){}
+  nomUsuario: string;
+  constructor(private authSrv: AuthService){ this.authSrv.usrActual.subscribe(
+    usr=> this.nomUsuario= usr.id
+  )}
   @HostListener("window:beforeunload", ["$event"])
   unloadHandler(event:Event){
+    this.authSrv.logout();
+  }
+  salir(){
     this.authSrv.logout();
   }
 }

@@ -1,0 +1,138 @@
+<div class="row mx-0 mt-0">
+    <div class="col-12 bg-gray py-2">
+        <a routerLink="/inicio">
+            Inicio
+        </a><b>></b>
+        <a>Planillas</a>
+    </div>
+</div>
+<div class="px-3 mt-3">
+    <div class="mx-0 row"></div>
+    <div class="col-12 py-3 px-3 rounded bg-gray">
+        <div class="row pb-5">
+            <div class="col-5">
+                <div class="row">
+                    <div class="col-5">
+                        Seleccione la fecha o rango:
+                    </div>
+                    <div class="col-7">
+                        <select class="form-select" aria-label="seleccion rango">
+                            <option selected>Día</option>
+                            <option value="1">Semana</option>
+                            <option value="2">Mes</option>
+                            <option value="3">Año</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" placeholder="Dígite su busqueda"
+                        aria-label="Search" />
+                </div>
+            </div>
+            <div class="col-2">Filtros:
+                <button class="btn btn-success">
+                    <fa-icon [icon]="['fas' , 'filter']"></fa-icon>
+                </button>
+                &nbsp;
+                <button class="btn btn-danger">
+                    <fa-icon [icon]="['fas' , 'remove-format']"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <table class="table">
+                <thead>
+
+                    <tr>
+                        <th scope="col">Número</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Cédula</th>
+                        <th scope="col">Salario<br>Base</th>
+                        <th scope="col">Peajes</th>
+                        <th scope="col">Patios</th>
+                        <th scope="col">Bonificación</th>
+                        <th scope="col">Domingo</th>
+                        <th scope="col">Feriados</th>
+                        <th scope="col">Seguro</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Controles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td colspan="8">
+                            <button type= "button" class="btn btn-success w-100"  data-toggle="modal" data-target="#ventanaForm" >Generar Factura </button>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Kenny Richards</td>
+                        <td>702700014</td>
+                        <td>100.000</td>
+                        <td>n/a</td>
+                        <td>n/a</td>
+                        <td >n/a</td> 
+                        <td>Si</td>
+                        <td>Lunes Martes</td>
+                        <td style="color:green">Si</td>
+                        <td style="color:gray"> Inactivo
+                             &nbsp;
+                            <button class="btn btn-warning">
+                                <fa-icon [icon]="['fas' , 'eye']"></fa-icon>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary">
+                                <fa-icon [icon]="['fas' , 'file']"></fa-icon>
+                            </button>
+                            &nbsp;
+                            <button class="btn btn-danger">
+                                <fa-icon [icon]="['fas' , 'trash']"></fa-icon>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Carlos Vargas</td>
+                        <td>796544312</td>
+                        <td>100.000</td>
+                        <td>n/a</td>
+                        <td>n/a</td>
+                        <td >n/a</td> 
+                        <td>Si</td>
+                        <td>Lunes Martes</td>
+                        <td style="color:green">Si</td>
+                        <td style="color:red"> Despedido
+                             &nbsp;
+                             <button class="btn btn-warning">
+                                <fa-icon [icon]="['fas' , 'eye']"></fa-icon>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary">
+                                <fa-icon [icon]="['fas' , 'file']"></fa-icon>
+                            </button>
+                            &nbsp;
+                            <button class="btn btn-danger">
+                                <fa-icon [icon]="['fas' , 'trash']"></fa-icon>
+                            </button>
+                        </td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+

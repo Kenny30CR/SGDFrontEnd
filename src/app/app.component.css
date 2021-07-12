@@ -1,0 +1,13 @@
+.active{
+    background-color: #0d6efd!important;
+}
+
+.bg-gray{
+    background-color: #e4e8ec;
+}
+.pointer{
+    cursor: pointer;
+}
+.base{
+    background-color: #293d52; /* #232a31 */
+}

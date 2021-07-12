@@ -21,6 +21,11 @@ import { Error401Component } from './error401/error401.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { VentaComponent } from './venta/venta.component';
+import { DespachosComponent } from './despachos/despachos.component';
+import { FacturasComponent } from './facturas/facturas.component';
+import { PlanillasComponent } from './planillas/planillas.component';
+import { DieselComponent } from './diesel/diesel.component';
+import { BalancesComponent } from './balances/balances.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { VentaComponent } from './venta/venta.component';
     Error401Component,
     ProductoComponent,
     ClienteComponent,
-    VentaComponent
+    VentaComponent,
+    DespachosComponent,
+    FacturasComponent,
+    PlanillasComponent,
+    DieselComponent,
+    BalancesComponent
   ],
   imports: [
     BrowserModule,
